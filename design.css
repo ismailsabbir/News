@@ -36,3 +36,19 @@
   height: 40px;
   border-radius: 50%;
 }
+.col {
+  width: auto;
+}
+.col p {
+  font-size: 1.1rem;
+  color: rgb(77, 74, 74);
+  font-weight: 700;
+  margin-right: 10px;
+}
+.news-list {
+  margin-top: 40px;
+}
+
+/* .news-list p {
+  margin: 10px;
+} */
