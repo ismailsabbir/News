@@ -11,7 +11,7 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="design.css" />
+    <link rel="stylesheet" href="blog.css" />
   </head>
   <body>
     <nav class="container">
@@ -26,6 +26,122 @@
         </div>
       </div>
     </nav>
+    <section class="container">
+      <div class="var">
+        <div class="left">
+          <img src="images/let.jpg" alt="" />
+        </div>
+        <div class="right">
+          <h4>Differences between var, let, and const</h4>
+          <p>
+            <span>Var : </span>The scope of a var variable is functional scope.
+            It can be updated and re-declared into the scope. It can be declared
+            without initialization. It can be accessed without initialization as
+            its default value is “undefined”. hoisting done , with initializing
+            as ‘default’ value
+          </p>
+          <p>
+            <span>Let :</span>The scope of a let variable is block scope. It can
+            be updated but cannot be re-declared into the scope It can be
+            declared without initialization. It cannot be accessed without
+            initialization otherwise it will give ‘referenceError’. Hoisting is
+            done , but not initialized (this is the reason for error when we
+            access the let variable before declaration/initialization
+          </p>
+          <p>
+            <span>Const :</span>The scope of a const variable is block scope. It
+            cannot be updated or re-declared into the scope. It cannot be
+            declared without initialization. It cannot be accessed without
+            initialization, as it cannot be declared without initialization.
+            Hoisting is done, but not initialized (this is the reason for error
+            when we access the const variable before declaration/initialization
+          </p>
+        </div>
+      </div>
+
+      <div class="var var-mid">
+        <div class="right">
+          <h4>Differences between Regular function Arrow function</h4>
+          <h5>1) Syntax:</h5>
+
+          <p>
+            `A programmer can get the same result as regular functions by
+            writing a few lines of code using arrow functions. <br />
+            Curly brackets are not required if only one expression is <br />
+            // Regular function ES5: <br />
+            var add = function(a, b) { return a + b;}; <br />// Arrow function
+            ES6: <br />
+            let add = (a, b) => { return a + b}; //or let add = (a, b) => a + b
+            ;`
+          </p>
+          <h5>2) Arguments binding</h5>
+          <p>
+            arguments object inside the regular functions contains the list of
+            arguments. <br />
+
+            // Object with Regular function <br />
+            let showData = { <br />
+            showArg: function(){ <br />
+            console.log(arguments); <br />
+            } <br />
+            } <br />
+            showData.showArg(1,2,3); // output {0:1,1:2,2:3} <br />
+          </p>
+
+          <p>
+            this value inside a regular function is dynamic and depends on how
+            the function is <br />
+            But this inside the arrow function is bound lexically and equals to
+            this of the outer <br />
+            function. Fat arrow methods always bind this a value to the class
+            instance.
+          </p>
+        </div>
+        <div class="left">
+          <img class="img-fluid" src="images/map.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="var">
+        <div class="left">
+          <img src="images/temp1.png" alt="" />
+        </div>
+        <div class="right">
+          <h4>Template literals (Template strings)</h4>
+          <p>
+            Template literals are enclosed by backtick (`) characters instead of
+            double or single quotes. <br />
+
+            Along with having normal strings, template literals can also contain
+            other parts called placeholders, which are embedded expressions
+            delimited by a dollar sign and curly braces: ${expression}. The
+            strings and placeholders get passed to a function — either a default
+            function, or a function you supply. The default function (when you
+            don't supply your own) just performs string interpolation to do
+            substitution of the placeholders and then concatenate the parts into
+            a single string. <br />
+
+            To supply a function of your own, precede the template literal with
+            a function name; the result is called a tagged template. In that
+            case, the template literal is passed to your tag function, where you
+            can then perform whatever operations you want on the different parts
+            of the template literal. <br />
+
+            To escape a backtick in a template literal, put a backslash (\)
+            before the backtick.
+          </p>
+          <p>
+            `string text` <br />
+
+            `string text line 1 <br />
+            string text line 2` <br />
+
+            `string text ${expression} string text` <br />
+          </p>
+        </div>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
