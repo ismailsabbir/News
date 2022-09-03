@@ -1,12 +1,19 @@
-// --------------All Categories load-------------
-function categories() {
-  const url = `https://openapi.programming-hero.com/api/news/categories`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => categoriesdisplay(data.data.news_category));
-}
+//-------- arrow function ------------
+const categories = () => {
+  //------------ data fetch and  try catch -----------
+  try {
+    const url = `https://openapi.programming-hero.com/api/news/categories`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => categoriesdisplay(data.data.news_category));
+  } catch (err) {
+    alert(err);
+  }
+};
+
 // -------------All Categories display --------------
-function categoriesdisplay(categories) {
+//-------------Arrow function----------
+const categoriesdisplay = (categories) => {
   const newsContainer = document.getElementById("news-container");
   for (const categori of categories) {
     //console.log(categori);
@@ -23,18 +30,26 @@ function categoriesdisplay(categories) {
     //------------------spainer end----------------
     document.getElementById("loder").style.display = "none";
   }
-}
+};
+
 categories();
 //------------spainer start ------------------
 document.getElementById("loder").style.display = "block";
 
 // -------------All newspaper load ---------------
-function bydefaultnews() {
-  const url = `https://openapi.programming-hero.com/api/news/category/08`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => defaultnewsdisplay(data.data));
-}
+//-------------arrow function-------------
+const bydefaultnews = () => {
+  //------------data fetch and try catch--------
+  try {
+    const url = `https://openapi.programming-hero.com/api/news/category/08`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => defaultnewsdisplay(data.data));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 //---------------All news display -------------
 function defaultnewsdisplay(defaults) {
   const newsContainer = document.getElementById("news-containerall");
@@ -107,10 +122,14 @@ document.getElementById("loder").style.display = "block";
 
 //---------------Categories wise news load ------------------
 function newsload(id, name) {
-  const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => newsloaddetal(data.data, name));
+  try {
+    const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => newsloaddetal(data.data, name));
+  } catch (err) {
+    console.log(err);
+  }
 }
 //--------------categories wise news display -------------
 function newsloaddetal(newss, name) {
