@@ -17,7 +17,7 @@
     <nav class="container">
       <div class="item">
         <div class="logo">
-          <h5><span>News</span>Portal</h5>
+          <h5><span>News</span>Independent</h5>
         </div>
         <div class="link">
           <a href="">News</a>
@@ -30,6 +30,26 @@
     <section class="container">
       <div class="news-list">
         <div id="news-container" class="row justify-content-center"></div>
+      </div>
+    </section>
+    <section class="container number-display">
+      <p>
+        <span id="num"></span> items found for category <span id="types"></span>
+      </p>
+    </section>
+    <section class="container sort">
+      <div class="user-value">
+        <form action="">
+          <label for="cars">Sort By View : </label>
+          <select name="cars" id="cars">
+            <option value="ass">Acessending</option>
+            <option value="des">Desending</option>
+          </select>
+        </form>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-primary">Today’s Pick</button>
+        <button type="button" class="btn btn-outline-primary">Trending</button>
       </div>
     </section>
 
@@ -49,6 +69,7 @@
     <section class="mdals">
       <!-- Button trigger modal -->
       <button
+        id="mdals"
         type="button"
         class="btn btn-primary"
         data-bs-toggle="modal"
@@ -94,6 +115,7 @@
         </div>
       </div>
     </section>
+    <footer><p>Copyright 2021 News Independent</p></footer>
 
     <script src="news.js"></script>
     <script

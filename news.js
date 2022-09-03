@@ -16,7 +16,7 @@ function categoriesdisplay(categories) {
     newele.classList.add("col-lg-1");
 
     newele.innerHTML = `
-    <p onclick="newsload('${categori.category_id}')">${categori.category_name}</p>
+    <p onclick="newsload('${categori.category_id}','${categori.category_name}')">${categori.category_name}</p>
     
     `;
 
@@ -33,7 +33,9 @@ function bydefaultnews() {
 }
 function defaultnewsdisplay(defaults) {
   const newsContainer = document.getElementById("news-containerall");
-
+  const number = defaults.length;
+  document.getElementById("num").innerText = number;
+  document.getElementById("types").innerText = "News All";
   newsContainer.innerHTML = " ";
   for (const news of defaults) {
     //console.log(news);
@@ -85,21 +87,26 @@ function defaultnewsdisplay(defaults) {
   </div>
     `;
     newsContainer.appendChild(newelement);
+
     document.getElementById("loder").style.display = "none";
   }
 }
 bydefaultnews();
 document.getElementById("loder").style.display = "block";
 
-function newsload(id) {
+function newsload(id, name) {
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
   console.log(url);
   fetch(url)
     .then((res) => res.json())
-    .then((data) => newsloaddetal(data.data));
+    .then((data) => newsloaddetal(data.data, name));
 }
-function newsloaddetal(newss) {
+function newsloaddetal(newss, name) {
   const newsContainer = document.getElementById("news-containerall");
+  const number = newss.length;
+  document.getElementById("num").innerText = number;
+  document.getElementById("types").innerText = name;
+
   newsContainer.innerHTML = " ";
   for (const news of newss) {
     //console.log(news);

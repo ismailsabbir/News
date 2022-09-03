@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: aliceblue;
+  background-color: ghostwhite;
 }
 .item {
   width: 100%;
@@ -39,6 +39,7 @@ body {
   height: 40px;
   border-radius: 50%;
 }
+
 .col {
   width: auto;
 }
@@ -140,8 +141,67 @@ body {
     align-items: center;
     justify-content: center;
   }
+  .sort {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
 }
 .card button {
   border: none;
   background-color: white;
+}
+
+.number-display {
+  margin-top: 40px;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.number-display p {
+  color: rgb(30, 28, 28);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sort {
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+form label {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+form select {
+  color: rgb(74, 72, 72);
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: none;
+}
+form select option {
+  border: none;
+}
+.buttons button {
+  margin-right: 10px;
+}
+#mdals {
+  display: none;
+}
+footer {
+  border-top: 1px solid gray;
+  margin-top: 40px;
+  height: 80px;
+  color: white;
+  font-size: 1.2rem;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
