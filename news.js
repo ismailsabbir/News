@@ -1,9 +1,11 @@
+// --------------All Categories load-------------
 function categories() {
   const url = `https://openapi.programming-hero.com/api/news/categories`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => categoriesdisplay(data.data.news_category));
 }
+// -------------All Categories display --------------
 function categoriesdisplay(categories) {
   const newsContainer = document.getElementById("news-container");
   for (const categori of categories) {
@@ -14,23 +16,26 @@ function categoriesdisplay(categories) {
     newele.classList.add("col-sm-3");
     newele.classList.add("col-md-2");
     newele.classList.add("col-lg-1");
-
     newele.innerHTML = `
     <p onclick="newsload('${categori.category_id}','${categori.category_name}')">${categori.category_name}</p>
-    
     `;
-
     newsContainer.appendChild(newele);
+    //------------------spainer end----------------
+    document.getElementById("loder").style.display = "none";
   }
 }
 categories();
+//------------spainer start ------------------
+document.getElementById("loder").style.display = "block";
 
+// -------------All newspaper load ---------------
 function bydefaultnews() {
   const url = `https://openapi.programming-hero.com/api/news/category/08`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => defaultnewsdisplay(data.data));
 }
+//---------------All news display -------------
 function defaultnewsdisplay(defaults) {
   const newsContainer = document.getElementById("news-containerall");
   const number = defaults.length;
@@ -59,13 +64,17 @@ function defaultnewsdisplay(defaults) {
         <div class="footfirst">
           <img src="${news.author.img}" alt="" />
           <div class="first-text">
-            <h5>${news.author.name}</h5>
-            <p>${news.author.published_date}</p>
+            <h5>${news.author.name ? news.author.name : "not found"}</h5>
+            <p>${
+              news.author.published_date
+                ? news.author.published_date
+                : "Not found"
+            }</p>
           </div>
         </div>
         <div class="mid">
           <i class="fa-regular fa-eye"></i>
-          <h3>${news.total_view}</h3>
+          <h3>${news.total_view ? news.total_view : "not found"}</h3>
         </div>
         <div class="star-icon">
           <i class="fa-solid fa-star-sharp-half-stroke"></i>
@@ -87,20 +96,23 @@ function defaultnewsdisplay(defaults) {
   </div>
     `;
     newsContainer.appendChild(newelement);
-
+    // ---------------spainer ending -----------------
     document.getElementById("loder").style.display = "none";
   }
 }
 bydefaultnews();
+
+// ----------------spainer start -------------
 document.getElementById("loder").style.display = "block";
 
+//---------------Categories wise news load ------------------
 function newsload(id, name) {
   const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-  console.log(url);
   fetch(url)
     .then((res) => res.json())
     .then((data) => newsloaddetal(data.data, name));
 }
+//--------------categories wise news display -------------
 function newsloaddetal(newss, name) {
   const newsContainer = document.getElementById("news-containerall");
   const number = newss.length;
@@ -130,13 +142,17 @@ function newsloaddetal(newss, name) {
         <div class="footfirst">
           <img src="${news.author.img}" alt="" />
           <div class="first-text">
-            <h5>${news.author.name}</h5>
-            <p>${news.author.published_date}</p>
+            <h5>${news.author.name ? news.author.name : "Not found"}</h5>
+            <p>${
+              news.author.published_date
+                ? news.author.published_date
+                : "not found"
+            }</p>
           </div>
         </div>
         <div class="mid">
           <i class="fa-regular fa-eye"></i>
-          <h3>${news.total_view}</h3>
+          <h3>${news.total_view ? news.total_view : "not found"}</h3>
         </div>
         <div class="star-icon">
           <i class="fa-solid fa-star-sharp-half-stroke"></i>
@@ -162,15 +178,16 @@ function newsloaddetal(newss, name) {
     newsContainer.appendChild(newelement);
   }
 }
+// ------------- load detals information---------------
 function loaddetalinfo(id) {
   const url = `https://openapi.programming-hero.com/api/news/${id}`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => modaldetals(data.data));
 }
+//-----------------display detals information------------
 function modaldetals(detals) {
   for (const detal of detals) {
-    console.log(detal);
     document.getElementById("exampleModalLabel").innerText = `${detal.title}`;
     const modalbody = document.getElementById("modal-body");
     modalbody.innerHTML = `

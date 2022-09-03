@@ -6,6 +6,7 @@
 body {
   background-color: ghostwhite;
 }
+/* -------------- navbar part ------------ */
 .item {
   width: 100%;
   height: 90px;
@@ -39,6 +40,7 @@ body {
   height: 40px;
   border-radius: 50%;
 }
+/* ----------------blog part design --------------- */
 .var {
   background-color: white;
   padding: 20px;
@@ -61,10 +63,6 @@ body {
 
 .right {
   padding: 30px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
 }
 .right h4 {
   text-align: justify;
@@ -78,6 +76,8 @@ body {
 .right p {
   text-align: justify;
 }
+
+/* -----------blog responsive --------------- */
 @media only screen and (max-width: 991px) {
   .var {
     display: flex;
@@ -85,4 +85,16 @@ body {
     justify-content: center;
     flex-direction: column;
   }
+}
+
+footer {
+  border-top: 1px solid gray;
+  margin-top: 40px;
+  height: 80px;
+  color: white;
+  font-size: 1.2rem;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
